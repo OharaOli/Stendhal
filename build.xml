@@ -989,7 +989,8 @@ d = 9017093486007323270605414717455737376618092805104733236083857811315606869372
 			<classpath path="libs/jacoco/jacocoant.jar"/>
 		</taskdef>
 		<jacoco:coverage destfile="${build_tests_report}/jacoco.exec" append="false" includes="games.stendhal.*">
-			<junit fork="yes" forkmode="once" errorproperty="test.error" failureproperty="test.failure">
+			<junit fork="yes" forkmode="once" errorproperty="test.error" failureproperty="test.failure" dir = ".">
+				
 				<classpath>
 					<pathelement path="${build_tests}"/>
 					<pathelement path="${build_client}"/>
