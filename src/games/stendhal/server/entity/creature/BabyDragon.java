@@ -53,6 +53,7 @@ public class BabyDragon extends Pet {
 		setXP(XP);
 		setBaseHP(HP);
 		setHP(HP);
+		setWeight(1);
 	}
 
 	public static void generateRPClass() {
