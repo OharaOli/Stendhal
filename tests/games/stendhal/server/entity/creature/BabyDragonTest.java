@@ -11,7 +11,7 @@
  *                                                                         *
  ***************************************************************************/
 package games.stendhal.server.entity.creature;
-import static org.junit.Assert.assertEquals;
+
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -71,11 +71,5 @@ public class BabyDragonTest {
 		final BabyDragon drako = new BabyDragon(template, PlayerTestHelper.createPlayer("bob"));
 		assertThat(drako.getFoodNames(), is(foods));
 	}
-    
-	@Test
-	public void testBabyDragonweight() {
-		final BabyDragon drako = new BabyDragon();
-		String x = "" + drako.getWeight();
-		assertEquals(x, "1");
-	}
+
 }
