@@ -309,6 +309,7 @@ class SourceObject extends MoveableObject {
 	 *            who moves the Source
 	 * @return true if successful
 	 */
+	
 	public boolean moveTo(final DestinationObject dest, final Player player) {
 		if (!((EquipListener) item).canBeEquippedIn(dest.getContentSlotName())) {
 			// give some feedback
@@ -316,12 +317,16 @@ class SourceObject extends MoveableObject {
 			logger.warn("tried to equip an entity into disallowed slot: " + item.getClass() + "; equip rejected");
 			return false;
 		}
-
+		
 		if (!dest.isValid() || !dest.preCheck(item, player)) {
 			// no extra logger warning needed here as each is inside the methods called above, where necessary
 			return false;
 		}
-
+		
+		if(dest.getContentSlotName() != null && dest.getContentSlotName().equals("keyring"))
+			if(item.getQuantity() >= 2)
+				return false;
+		
 		final String[] srcInfo = getLogInfo();
 		final Item entity = removeFromWorld();
 		logger.debug("item removed");
