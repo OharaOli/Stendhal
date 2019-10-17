@@ -54,6 +54,7 @@ public class HttpClientTest {
 	 */
 	@Ignore
 	@Test
+	@Ignore
 	public void testGetInputStream() {
 		HttpClient client = new HttpClient("http://sf.net/projects/arianne");
 		InputStream is = client.getInputStream();
