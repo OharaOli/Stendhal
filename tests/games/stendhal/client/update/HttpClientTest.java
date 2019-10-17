@@ -52,7 +52,6 @@ public class HttpClientTest {
 	/**
 	 * Tests for getInputStream
 	 */
-	@Ignore
 	@Test
 	@Ignore
 	public void testGetInputStream() {

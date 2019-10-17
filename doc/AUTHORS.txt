@@ -167,6 +167,18 @@ Authors of Stendhal are:
   · Bugs fixer
   - Diligent Dodo (aka Soniccuz)
   · Artist (mimic, dodo, suba diving concepts)
+- Ioan Anusca Popa
+  - Rainbow Beans NPC's dialogue a bit mangled
+- Wolodymyr Krywonos
+  - Mithril Clasp should go on key ring
+- Harry Cramp 
+  - Stackable items on the keyring just wrong
+- Vlad-Andrei Cojocaru
+  - Weightless Baby Dragons
+- Dan Dogaru
+  - Fishmonger in Kirdneh is Missing a Fish
+- Oliver O'Hara
+  - Travel log error for Emotion Crystals Quest
 
 We also thank many who have contributed to Stendhal by providing patches,
 which the rest of the team commited on their behalf. 

@@ -1,6 +1,13 @@
 Changelog
 ---------
 ---------
+1.31uom
+- Fixed Rainbow Beans NPC's dialogue a bit mangled
+- Fixed Mithril Clasp should go on key ring
+- Fixed Stackable items on the keyring just wrong
+- Fixed Weightless Baby Dragons
+- Fixed Fishmonger in Kirdneh is Missing a Fish
+- Fixed Travel log error for Emotion Crystals Quest
 1.30
 *world*
 - added Deniran Caves
