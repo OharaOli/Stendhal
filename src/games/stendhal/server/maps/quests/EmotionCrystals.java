@@ -84,6 +84,13 @@ public class EmotionCrystals extends AbstractQuest {
 
 	private static final int OFFSET_TIMESTAMPS = 1;
 	private static final int OFFSET_SUCCESS_MARKER = 6;
+	
+	/////////////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////////////////////////////////
+	//Added a list to store previously gathered crystals
+	List<String> previouslyGatheredCrystals = new ArrayList<String>();
+	/////////////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////////////////////////////////
 
 	@Override
 	public List<String> getHistory(final Player player) {
@@ -104,20 +111,52 @@ public class EmotionCrystals extends AbstractQuest {
 		}
 
 		List<String> gatheredCrystals = new ArrayList<String>();
+		
+		
 		boolean hasAllCrystals = true;
 
 		for (String color : crystalColors) {
 			if (player.isEquipped(color + " emotion crystal")) {
 				gatheredCrystals.add(color + " emotion crystal");
+				////////////////////////////////////////////////////////////////
+				////////////////////////////////////////////////////////////////
+				//When a player equips a new emotion crystal it is added the 
+				//list if it hasn't already been found
+				if(!previouslyGatheredCrystals.contains(color + " emotion crystal"))
+				    previouslyGatheredCrystals.add(color + " emotion crystal");
+				///////////////////////////////////////////////////////////////
+				///////////////////////////////////////////////////////////////
 			} else {
 				hasAllCrystals = false;
 			}
 		}
 		if (!gatheredCrystals.isEmpty()) {
-			String tell = "I have found the following crystals: ";
+			String tell = "I currently have the following crystals: ";
 			tell += Grammar.enumerateCollection(gatheredCrystals);
 			res.add(tell);
+			String prevTell = "I have previously found the following crystals: ";
+			prevTell += Grammar.enumerateCollection(previouslyGatheredCrystals);
+			res.add(prevTell);
 		}
+        ////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////
+		//Adds text cases where the player doesn't currently have any
+		//crystals by adding new log entries that account for this
+		else
+		{
+			if(previouslyGatheredCrystals.isEmpty())
+			{
+				res.add("I don't remember picking up one of these crystals.");
+			}
+			else
+			{
+				String tell = "I don't currently have any crystals but I have previously found the following crystals: ";
+				tell += Grammar.enumerateCollection(previouslyGatheredCrystals);
+				res.add(tell);
+			}
+		}
+        ////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////
 
 		if (hasAllCrystals) {
 			res.add("I have obtained all of the emotion crystals and should bring them to Julius in Ados.");
@@ -242,13 +281,15 @@ public class EmotionCrystals extends AbstractQuest {
 
 			// In place of QUEST_SLOT
 			//String RIDDLER_SLOT = crystalColors.get(n) + "_crystal_riddle";
+			
 
 			final List<ChatAction> rewardAction = new LinkedList<ChatAction>();
 			rewardAction.add(new EquipItemAction(rewardItem,1,true));
 			rewardAction.add(new IncreaseKarmaAction(5));
 			rewardAction.add(new SetQuestToTimeStampAction(QUEST_SLOT, OFFSET_TIMESTAMPS + n));
 			rewardAction.add(new SetQuestAction(QUEST_SLOT, OFFSET_SUCCESS_MARKER + n, "riddle_solved"));
-
+			
+			
 			final List<ChatAction> wrongGuessAction = new LinkedList<ChatAction>();
 			wrongGuessAction.add(new SetQuestToTimeStampAction(QUEST_SLOT, OFFSET_TIMESTAMPS + n));
 			wrongGuessAction.add(new SetQuestAction(QUEST_SLOT, OFFSET_SUCCESS_MARKER + n, "wrong"));
