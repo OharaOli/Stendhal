@@ -71,7 +71,7 @@ import games.stendhal.server.maps.Region;
  * <li>None</li>
  * </ul>
  *
- * @author AntumDeluge
+ * @author Oliver O'Hara
  */
 public class EmotionCrystals extends AbstractQuest {
 	private static final String QUEST_SLOT = "emotion_crystals";
