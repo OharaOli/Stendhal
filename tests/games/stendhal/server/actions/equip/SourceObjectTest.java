@@ -24,6 +24,7 @@ import games.stendhal.common.EquipActionConsts;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.item.Item;
+import games.stendhal.server.entity.item.StackableItem;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.MockStendlRPWorld;
 import marauroa.common.game.RPAction;
@@ -250,7 +251,36 @@ public class SourceObjectTest {
 		assertTrue(so.isValid());
 		assertEquals("too many are reduced to all", dropitem.getQuantity(), so.getQuantity());
 	}
-
-
+	
+	/**
+	 * Tests for moving stackable lucky charms to keyring
+	 */
+	@Test
+    public void testStackableLuckyCharmOnKeyringMove() {
+        StendhalRPZone testingZone = new StendhalRPZone("testzone", 20, 20);	//initialise a zone for the test
+        SingletonRepository.getRPWorld().addRPZone(testingZone);
+        Player inventoryTestPlayer = PlayerTestHelper.createPlayer("bob");	//initialise a player to test on
+        StackableItem luckyCharm = (StackableItem) SingletonRepository.getEntityManager().getItem("lucky charm");	//create the lucky charm item which can be stacked
+        
+        inventoryTestPlayer.equip("bag", luckyCharm);		//equip the lucky charm in the player's bag container
+        inventoryTestPlayer.setFeature("keyring", true);	//enable the keyring
+        luckyCharm.setQuantity(64);						//change the amount of keyring items to 64 to test stacking
+        testingZone.add(inventoryTestPlayer);				//add the initialised test player to the testing zone
+        
+        assertTrue(inventoryTestPlayer.isEquipped("lucky charm"));	//assert the test that the player has lucky charm equipped
+ 
+        final EquipmentAction action = new EquipAction();
+        RPAction equip = new RPAction();
+        equip.put("type", "equip");
+        equip.put(EquipActionConsts.BASE_OBJECT, inventoryTestPlayer.getID().getObjectID());	//equip bag, lucky charm and keyring
+        equip.put(EquipActionConsts.BASE_SLOT, "bag");
+        equip.put(EquipActionConsts.BASE_ITEM, luckyCharm.getID().getObjectID());
+        equip.put(EquipActionConsts.TARGET_OBJECT, inventoryTestPlayer.getID().getObjectID());
+        equip.put(EquipActionConsts.TARGET_SLOT, "keyring");
+        action.onAction(inventoryTestPlayer, equip);    
+        
+        assertTrue(inventoryTestPlayer.isEquipped("lucky charm"));  //asert the test that the lucky charm is equipped and is stored on the keyring
+        assertFalse(inventoryTestPlayer.isEquippedItemInSlot("keyring", "lucky charm"));
+    }
 
 }
