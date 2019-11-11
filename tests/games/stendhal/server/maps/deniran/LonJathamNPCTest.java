@@ -41,7 +41,7 @@ public class LonJathamNPCTest extends ZonePlayerAndNPCTestImpl{
 		assertTrue(en.step(player, "bye"));
 		assertEquals("See you at the next lecture", getReply(npc));
 	}
-	
+	/**test if lon jatham answers the required questions right */
 	@Test
 	public void testQuestions() {
 		final SpeakerNPC npc = getNPC("Lon Jatham");
