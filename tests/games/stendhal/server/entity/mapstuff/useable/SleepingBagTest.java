@@ -1,9 +1,5 @@
 package games.stendhal.server.entity.mapstuff.useable;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-
 /***************************************************************************
  *                   (C) Copyright 2003-2010 - Stendhal                    *
  ***************************************************************************
@@ -15,21 +11,23 @@ import org.junit.Test;
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+import static org.junit.Assert.*;
 
-
-import static org.junit.Assert.assertEquals;
-
+import org.junit.Test;
 import org.junit.BeforeClass;
 
 
 import games.stendhal.common.constants.Events;
 import games.stendhal.server.core.engine.StendhalRPZone;
+
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.MockStendhalRPRuleProcessor;
 import games.stendhal.server.maps.MockStendlRPWorld;
 import marauroa.common.Log4J;
 import marauroa.common.game.RPEvent;
+
 import utilities.PlayerTestHelper;
+
 
 
 /**
@@ -48,9 +46,9 @@ public class SleepingBagTest {
 	 */
 	@Test
 	public void testDescribe() {
-		UseableEntity entity = new SleepingBagT();
+		SleepingBed entity = new SleepingBed();
 
-		assertEquals("Description", "You are too far",
+		assertEquals("Description", "You see a sleeping bed",
 				entity.describe());
 	}
 
@@ -59,8 +57,8 @@ public class SleepingBagTest {
 	 */
 	@Test
 	public void testUseFromTooFar() {
-		UseableEntity entity = new SleepingBagT();
-		Player player = PlayerTestHelper.createPlayer("spy");
+		SleepingBed entity = new SleepingBed();
+		Player player = PlayerTestHelper.createPlayer("player");
 		player.setPosition(1, 2);
 		StendhalRPZone zone = new StendhalRPZone("testzone");
 		zone.add(entity);
@@ -70,8 +68,32 @@ public class SleepingBagTest {
 		assertEquals(player.events().size(), 1);
 		RPEvent event = player.events().get(0);
 		assertEquals("Correct event type", Events.PRIVATE_TEXT, event.getName());
-		assertEquals("You cannot reach that from here.", event.get("text"));
+		assertEquals("You are too far away from the bed, try to come closer.", event.get("text"));
 	}
+	/**
+	 * Tests for onUsed.
+	 */
+	@Test
+	public void testOnUsed() {
+		
+		
+		SleepingBed entity = new SleepingBed();
+		final Player player = PlayerTestHelper.createPlayer("bob");
 
+		entity.onUsed(player);
+		
+		assertEquals("You are sleeping", player.events().get(0).get("text"));
+		player.clearEvents();
+		entity.onUsed(player);
+		
+		assertEquals("You are no longer sleeping", player.events().get(0).get("text"));
+		player.clearEvents();
+		
+		final Player player2 = PlayerTestHelper.createPlayer("bob");
+
+		entity.onUsed(player);
+		entity.onUsed(player2);
+		assertEquals("Bed is used by someone", player2.events().get(0).get("text"));
+	}
 	
 }

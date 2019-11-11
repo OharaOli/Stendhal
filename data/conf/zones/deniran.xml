@@ -120,6 +120,8 @@
 			<destination zone="int_deniran_castle" ref="entrance_right" />
 			<attribute name="move.continuous" />
 		</portal>
+		<portal x="6" y="70" ref="sleeping_bags_entrance">
+			<destination zone="int_sleeping_bag" ref="entrance" /></portal>
 
 
 	</zone>
@@ -661,5 +663,13 @@
 		</portal>
 
 	</zone>
+	<zone file="interiors/deniran/sleeping_bag.tmx" name="int_sleeping_bag">
+		<portal x="15" y="22" ref="entrance">
+			<destination ref="sleeping_bags_entrance" zone="0_deniran" /><attribute name="move.continuous"></attribute>
+		</portal>
+		<configurator class-name="games.stendhal.server.maps.deniran.SleepingBagNPC"></configurator>
+		<entity x="10" y="17">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.useable.SleepingBed"></implementation>
+		</entity></zone>
 
 </zones>

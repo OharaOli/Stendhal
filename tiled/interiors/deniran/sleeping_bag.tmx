@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-down" width="32" height="26" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="1">
+ <tileset firstgid="1" name="collision" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="2" name="castle" tilewidth="32" tileheight="32" tilecount="320" columns="20">
+  <image source="../../tileset/building/castle.png" width="640" height="512"/>
+ </tileset>
+ <tileset firstgid="322" name="floors_3" tilewidth="32" tileheight="32" tilecount="12" columns="6">
+  <image source="../../tileset/ground/indoor/floors_3.png" width="192" height="64"/>
+ </tileset>
+ <tileset firstgid="334" name="brown" tilewidth="32" tileheight="32" tilecount="5" columns="5">
+  <image source="../../tileset/ground/brown.png" width="160" height="32"/>
+ </tileset>
+ <tileset firstgid="339" name="wall_hanging_dkgreen" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../../tileset/item/banners/wall_hanging_dkgreen.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="343" name="metal_and_stone" tilewidth="32" tileheight="32" tilecount="6" columns="3">
+  <image source="../../tileset/item/statue/metal_and_stone.png" width="96" height="64"/>
+ </tileset>
+ <tileset firstgid="349" name="swordsman" tilewidth="32" tileheight="32" tilecount="12" columns="4">
+  <image source="../../tileset/item/statue/swordsman.png" width="128" height="96"/>
+ </tileset>
+ <tileset firstgid="361" name="weapons_for_walls" tilewidth="32" tileheight="32" tilecount="16" columns="4">
+  <image source="../../tileset/item/armor/weapons_for_walls.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="377" name="suit_of_armor2" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../../tileset/item/armor/suit_of_armor2.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="381" name="throne" tilewidth="32" tileheight="32" tilecount="6" columns="3">
+  <image source="../../tileset/furniture/chair/throne.png" width="96" height="64"/>
+ </tileset>
+ <tileset firstgid="387" name="green" tilewidth="32" tileheight="32" tilecount="9" columns="3">
+  <image source="../../tileset/furniture/carpet/green.png" width="96" height="96"/>
+ </tileset>
+ <tileset firstgid="396" name="chests_red" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../../tileset/item/chest/chests_red.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="400" name="chest_purple" tilewidth="32" tileheight="32" tilecount="2" columns="2">
+  <image source="../../tileset/item/chest/chest_purple.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="402" name="wooden_trestle_vertical" tilewidth="32" tileheight="32" tilecount="6" columns="2">
+  <image source="../../tileset/furniture/table/wooden_trestle_vertical.png" width="64" height="96"/>
+ </tileset>
+ <tileset firstgid="408" name="lights_candle" tilewidth="32" tileheight="32" tilecount="36" columns="6">
+  <image source="../../tileset/furniture/light/lights_candle.png" width="192" height="192"/>
+ </tileset>
+ <tileset firstgid="444" name="wooden_trestle" tilewidth="32" tileheight="32" tilecount="9" columns="3">
+  <image source="../../tileset/furniture/table/wooden_trestle.png" width="96" height="96"/>
+ </tileset>
+ <layer id="1" name="0_floor" width="32" height="26">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACs1WWw7DIAyjN9o12p9eo/fYe730qMQ0hGwggbBVsizRRMZpCtmccxvAOo3BAjBab5R+TnOO2FJ/ThitHbGoJ1qwEm22ByvU+P/gFEGqg3JZndG7Ep89LgFXRf4yfb8L21+Obx73gIciP/7PNLmpvpX/tM4l/ywecawv9Sld1/pnPqXrWv9Pj1fAXuGTxf9j/9f4/3X/M07rrPWvPf9audV/D245/3r4z80EpftcGn88SAfVXjrPWMw/NdDG9/JvOf9ZQNJnvbWZzhvkGrA9AA0AAA==
+  </data>
+ </layer>
+ <layer id="2" name="1_terrain" width="32" height="26" locked="1">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu2WTU7DMBCFPSdg0S27CLFlFyFu0j0td4AjAKISLTeATXuDAkmvwE+P0AVH6II+KxnVcT1Wo07MhpGekkzG/hwnjl9pjCkDWhi9KASG1RI6oaY+kPtV5K8jnB/onJpadcBvw1l3wA/1d0Tb/DU167+hLyV9evwb2uW7kSF/rKxT2uVI/Bz5M2gOvUJv9XUb+W0vBL6dZ2mtveN+AZVO23uc39bXd1TJz0tt3ShM9V60v7V9g7l8fMY4X4SxpuBPwZ4l4DPH56cOn/+IMY2F579EftBiboaovRLqmdOGrxn//DB/gtxTAj5zmGv/gT36m/VvudYX2L0h9frPHP8R2hu6jjziPwoj+zXW4oB6jpgvCfk1V+5+nkXq2Of1vDnuU5wf8muu3HeWR+rY5/l8//kfcH9EW762/2P+Phxek1oh9cf+J+QXtfkSZwPzaPgWAA0AAA==
+  </data>
+ </layer>
+ <layer id="3" name="2_object" width="32" height="26">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAChNkZGAQxIKpDbDZgWxPMJAdQgN70QEue0KBYmF0sJ9e9gwHUAAMp1wgzoGGF3LcFQHpTCDOAuJCLPLZQDoPiPOpGNawuKsF4jogrkdjUztui4FmlQJxGZqZDUB+IxA3MaKykQHI7xVAXI7HPVeA+DIe+w8B9R4G4iNk+ImQ3t9AfB2In5NuNNXAa6g7Bgr8H0C70cE6YDytJzKeI7CowyZGqT24QDQW/djESAErgPpX0qFcxmUPNcKFGEAve0gBwoPMPaMAd3sNV/uQVPWjYBQMBgAApGASbQANAAA=
+  </data>
+ </layer>
+ <layer id="4" name="3_roof" width="32" height="26">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWDAVQy0s+uKjraNQqIA7OAcTKbDvGCy54FQLGFdLCfXvbgAsuAdi8n0f5YoPo4EvTEA9UmkGjHJKD6yTj0JALFk0gwLxmoNgWHenz2jIKBA6P5nz6AnPw/CqgPwkfjYBQMAgAAG8/QHgANAAA=
+  </data>
+ </layer>
+ <layer id="5" name="4_roof_add" width="32" height="26">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3NAQ0AMAgDsOHfyHGJDB7SGmgCwKZXSdedBwB+Nscx82QADQAA
+  </data>
+ </layer>
+ <layer id="6" name="objects" width="32" height="26">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3BAQEAAACCIP+vbkhAAQAAfBiM/sTxAA0AAA==
+  </data>
+ </layer>
+ <layer id="7" name="collision" width="32" height="26" opacity="0.45">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu2V2woAIAhD7f9/uteQjDSbgxIGwaLjDWoi0r5KpQPNEeXf5o9Mlvor+TPP8vXMrF563rbu3Aw2PiqPKu5JHt4cPXvH0v/X+ehg47/c/5W3s6vZ/x+Cz1S/dc7WihmpP8JHcDzq1oY4VAANAAA=
+  </data>
+ </layer>
+ <layer id="8" name="protection" width="32" height="26">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3BAQEAAACCIP+vbkhAAQAAfBiM/sTxAA0AAA==
+  </data>
+ </layer>
+</map>
