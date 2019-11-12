@@ -12,6 +12,7 @@ package games.stendhal.server.entity.mapstuff.useable;
  *                                                                         *
  ***************************************************************************/
 import static org.junit.Assert.*;
+import static utilities.SpeakerNPCTestHelper.getReply;
 
 import org.junit.Test;
 import org.junit.BeforeClass;
@@ -19,26 +20,48 @@ import org.junit.BeforeClass;
 
 import games.stendhal.common.constants.Events;
 import games.stendhal.server.core.engine.StendhalRPZone;
-
+import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.fsm.Engine;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.MockStendhalRPRuleProcessor;
 import games.stendhal.server.maps.MockStendlRPWorld;
+
+import games.stendhal.server.maps.deniran.SleepingBagNPC;
+
 import marauroa.common.Log4J;
 import marauroa.common.game.RPEvent;
 
 import utilities.PlayerTestHelper;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import utilities.ZonePlayerAndNPCTestImpl;
+
 
 
 
 /**
  * Tests for the ViewChangeEntity
  */
-public class SleepingBagTest {
+public class SleepingBagTest extends ZonePlayerAndNPCTestImpl{
+	
+	public static final String ZONE_NAME = "deniran";
+	
+	
+	public SleepingBagTest() {
+		setNpcNames("Sleeping Bag NPC");
+		setZoneForPlayer(ZONE_NAME);
+		addZoneConfigurator(new SleepingBagNPC(), ZONE_NAME);
+	}
+	
+	
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		Log4J.init();
 		MockStendhalRPRuleProcessor.get();
 		MockStendlRPWorld.get();
+		setupZone(ZONE_NAME);
 	}
 
 	/**
@@ -70,6 +93,7 @@ public class SleepingBagTest {
 		assertEquals("Correct event type", Events.PRIVATE_TEXT, event.getName());
 		assertEquals("You are too far away from the bed, try to come closer.", event.get("text"));
 	}
+	
 	/**
 	 * Tests for onUsed.
 	 */
@@ -94,6 +118,22 @@ public class SleepingBagTest {
 		entity.onUsed(player);
 		entity.onUsed(player2);
 		assertEquals("Bed is used by someone", player2.events().get(0).get("text"));
+	}
+	
+	@Test
+	public void SleepingBagNPCTest() {
+		final SpeakerNPC npc = getNPC("Sleeping Bag Seller");
+		final Engine en = npc.getEngine();
+
+		assertTrue(en.step(player, "hi Sleeping Bag Seller"));
+		assertEquals("Hello fellow tired traveller", getReply(npc));
+
+		assertTrue(en.step(player, "job"));
+		assertEquals("I sell sleeping bags but currently have none in stock. You can use the bed here but it is magical and kinda wonky (WIP).", getReply(npc));
+		
+		assertTrue(en.step(player, "help"));
+		assertEquals("Can't help you right now", getReply(npc));		
+		
 	}
 	
 }

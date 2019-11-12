@@ -40,7 +40,7 @@ public class SleepingBagNPC implements ZoneConfigurator {
 	        }
 
         protected void createDialog() {
-            // Lets the NPC reply with "Hallo" when a player greets him. But we could have set a custom greeting inside the ()
+            // Lets the NPC reply with "Hello" when a player greets him. But we could have set a custom greeting inside the ()
             addGreeting("Hello fellow tired traveller");
             // Lets the NPC reply when a player says "job"
             addJob("I sell sleeping bags but currently have none in stock. You can use the bed here but it is magical and kinda wonky (WIP).");
