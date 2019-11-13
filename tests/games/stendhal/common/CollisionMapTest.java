@@ -18,6 +18,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.awt.geom.Rectangle2D;
 import java.util.BitSet;
+import java.util.LinkedList;
+import java.util.List;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -25,7 +27,11 @@ import org.junit.Test;
 import games.stendhal.client.entity.Player;
 import games.stendhal.client.util.UserInterfaceTestHelper;
 import games.stendhal.common.tiled.LayerDefinition;
+import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPRuleProcessor;
+import games.stendhal.server.core.engine.StendhalRPZone;
+import games.stendhal.server.core.pathfinder.FixedPath;
+import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.maps.MockStendlRPWorld;
 import utilities.PlayerTestHelper;
 
@@ -264,7 +270,57 @@ public class CollisionMapTest {
 		}
 
 	}
-
+	
+	/**
+	 * Tests for furniture shop building collision.
+	 */
+	@Test
+	public void testFurnitureShopCollision() {
+		//create deniran zone to test for building collision
+		StendhalRPZone zone = new StendhalRPZone("deniran_w", 98, 29);
+		SingletonRepository.getRPWorld().addRPZone(zone);
+		//create player to test for collision with building
+		games.stendhal.server.entity.player.Player bob = PlayerTestHelper.createPlayer("bob");
+		
+		//teleport player to just outside of building
+		bob.teleport(zone, 89, 27, null, null);
+		//create path for player to walk, walking from outside the building towards the building wall from the left
+		List<Node> nodes = new LinkedList<Node>();
+		nodes.add(new Node(89, 27));	//outside building
+		nodes.add(new Node(90, 27));	//inside building wall
+		bob.setPath(new FixedPath(nodes, true));
+		//move player along path
+		bob.applyMovement();
+		//test if player has moved - should be in the same place as it was originally if collision applies
+		assertThat(bob.getX(), is(89));
+		
+		//walking from top downwards
+		bob.teleport(zone, 94, 25, null, null);
+		nodes = new LinkedList<Node>();
+		nodes.add(new Node(94, 25));	//outside building
+		nodes.add(new Node(94, 26));	//inside building wall
+		bob.setPath(new FixedPath(nodes, true));
+		bob.applyMovement();
+		assertThat(bob.getY(), is(25)); //if Y hasn't changed, collision successful
+		
+		//walking from right to left
+		bob.teleport(zone, 99, 27, null, null);
+		nodes = new LinkedList<Node>();
+		nodes.add(new Node(99, 27));	//outside building
+		nodes.add(new Node(98, 27));	//inside building wall
+		bob.setPath(new FixedPath(nodes, true));
+		bob.applyMovement();
+		assertThat(bob.getX(), is(99)); //if X hasn't changed, collision successful
+		
+		//walking from below upwards
+		bob.teleport(zone, 94, 30, null, null);
+		nodes = new LinkedList<Node>();
+		nodes.add(new Node(94, 30));	//outside building
+		nodes.add(new Node(94, 31));	//inside building wall
+		bob.setPath(new FixedPath(nodes, true));
+		bob.applyMovement();
+		assertThat(bob.getY(), is(30)); //if Y hasn't changed, collision successful
+	}
 	/**
 	 * Tests for collidesEntity.
 	 */
