@@ -1,6 +1,11 @@
 Changelog
 ---------
 ---------
+1.32uom
+- Added new feature first release Buy your own House Furniture
+- Added new feature first release Sleeping bag feature
+- Added new feature first release Lon Jatham at the Deniran Institute of Technology
+
 1.31uom
 - Fixed Rainbow Beans NPC's dialogue a bit mangled
 - Fixed Mithril Clasp should go on key ring

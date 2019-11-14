@@ -169,16 +169,22 @@ Authors of Stendhal are:
   · Artist (mimic, dodo, suba diving concepts)
 - Ioan Anusca Popa
   - Rainbow Beans NPC's dialogue a bit mangled
+  - Lon Jatham at the Deniran Institute of Techonology
 - Wolodymyr Krywonos
   - Mithril Clasp should go on key ring
+  - Sleeping bag feature
 - Harry Cramp 
   - Stackable items on the keyring just wrong
+  - Buy your own House Furniture
 - Vlad-Andrei Cojocaru
   - Weightless Baby Dragons
+  - Sleeping bag feature
 - Dan Dogaru
   - Fishmonger in Kirdneh is Missing a Fish
+  - Lon Jatham at the Deniran Institute of Techonology
 - Oliver O'Hara
   - Travel log error for Emotion Crystals Quest
+  - Buy your own House Furniture
 
 We also thank many who have contributed to Stendhal by providing patches,
 which the rest of the team commited on their behalf. 
