@@ -44,7 +44,7 @@ public class LonJathamNPCTest extends ZonePlayerAndNPCTestImpl{
 		assertEquals("Good morning ! Are you ready for a lecture ?", getReply(npc));
 
 		assertTrue(en.step(player, "Bye"));
-		assertEquals("That's all for today, see you next time, whenewer that will be !", getReply(npc));
+		assertEquals("That's all for today, see you next time, whenever that will be !", getReply(npc));
 	}
 	
 	/**
@@ -79,7 +79,7 @@ public class LonJathamNPCTest extends ZonePlayerAndNPCTestImpl{
 		assertEquals("We no longer have a Computer Science with Business Management programme", getReply(npc));
 		
 		assertTrue(en.step(player, "Bye"));
-		assertEquals("That's all for today, see you next time, whenewer that will be !", getReply(npc));
+		assertEquals("That's all for today, see you next time, whenever that will be !", getReply(npc));
 			
 
 	}
