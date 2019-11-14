@@ -151,7 +151,8 @@ public class Player extends RPEntity implements UseListener {
 	 * quick presses ment to move one tile.
 	 */
 	private int startMoveTurn;
-
+    
+    
 	/**
 	 * last client action timestamp
 	 */
@@ -273,6 +274,8 @@ public class Player extends RPEntity implements UseListener {
 		unlockedPortals = new LinkedList<Integer>();
 		updateModifiedAttributes();
 	}
+	
+	
 
 	/**
 	 * Add an active client direction.
@@ -281,13 +284,15 @@ public class Player extends RPEntity implements UseListener {
 	 *            direction
 	 */
 	public void addClientDirection(final Direction direction) {
-		if (hasPath()) {
-			clearPath();
-		}
-
-		startMoveTurn = SingletonRepository.getRuleProcessor().getTurn();
-		directions.remove(direction);
-		directions.add(direction);
+		
+			if (hasPath()) {
+				clearPath();
+			}
+	
+			startMoveTurn = SingletonRepository.getRuleProcessor().getTurn();
+			directions.remove(direction);
+			directions.add(direction);
+		
 	}
 
 	/**
@@ -308,28 +313,30 @@ public class Player extends RPEntity implements UseListener {
 	 *            <code>true</code>.
 	 */
 	public void applyClientDirection(final boolean stopOnNone) {
-		int size;
-		Direction direction;
-
-		/*
-		 * For now just take last direction.
-		 *
-		 * Eventually try each (last-to-first) until a non-blocked one is found
-		 * (if any).
-		 */
-		size = directions.size();
-		if (size != 0) {
-			direction = directions.get(size - 1);
-
-			// as an effect of the poisoning, the player's controls
-			// are switched to make it difficult to navigate.
-			if (hasStatus(StatusType.POISONED) || has("status_confuse")) {
-				direction = direction.oppositeDirection();
+		
+			int size;
+			Direction direction;
+		
+			/*
+			 * For now just take last direction.
+			 *
+			 * Eventually try each (last-to-first) until a non-blocked one is found
+			 * (if any).
+			 */
+			size = directions.size();
+			if (size != 0) {
+				direction = directions.get(size - 1);
+		
+				// as an effect of the poisoning, the player's controls
+				// are switched to make it difficult to navigate.
+				if (hasStatus(StatusType.POISONED) || has("status_confuse")) {
+					direction = direction.oppositeDirection();
+				}
+		
+				setDirection(direction);
+				setSpeed(getBaseSpeed());
 			}
-
-			setDirection(direction);
-			setSpeed(getBaseSpeed());
-		}
+	    
 	}
 
 	@Override

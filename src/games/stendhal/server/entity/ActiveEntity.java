@@ -299,14 +299,23 @@ public abstract class ActiveEntity extends Entity {
 
 
 /* XXX --- MOVEMENT --- XXX */
-
+    private boolean is_in_bed = false;
+	
+    public boolean check_bed () {
+    	return is_in_bed;
+    }
+    
+    public void set_bed_status () {
+    	is_in_bed = !is_in_bed;
+    }
 	/**
 	 * Apply movement and process it's reactions.
 	 */
 	public void applyMovement() {
 		// even if we could we would not move;
-		if (speed == 0) {
+		if (speed == 0 || is_in_bed) {
 			stepsTaken = 0;
+			stop();
 			return;
 		}
 		/* XXX: Can this.stopped() be called here instead and set direction
@@ -317,6 +326,7 @@ public abstract class ActiveEntity extends Entity {
 		 */
 		if (direction == Direction.STOP) {
 			stepsTaken = 0;
+			
 			return;
 		}
 

@@ -31,7 +31,17 @@ public abstract class PlayerActivityEntity extends UseableEntity {
 
 	private static final long PENALTY_TIMEOUT = 30 * 60 * 1000;
 	private static final long PENALTY_COUNT = 3000;
-
+    private boolean bed_is_used = false;
+    
+    public void set_bed_used() {
+        bed_is_used = !bed_is_used;
+    }
+    
+	private boolean is_bed = false;
+    
+    public void set_bed_class() {
+        is_bed = true;
+    }
 	/**
 	 * Create a player activity entity.
 	 */
@@ -144,16 +154,17 @@ public abstract class PlayerActivityEntity extends UseableEntity {
 
 		final Player player = (Player) entity;
 
-		// The player must be next to the source to start to use it.
-		if (!player.nextTo(this)) {
-			player.sendPrivateText("You are too far away from " + this.getName()+
-				", try to come closer.");
-			return false;
-		}
+		
 
-		if (isPrepared(player)) {
+		if (isPrepared(player) && !is_bed) {
 			final Activity activity = new Activity(player);
-
+			
+			// The player must be next to the source to start to use it.
+			if (!player.nextTo(this)) {
+				player.sendPrivateText("You are too far away from " + this.getName()+
+					", try to come closer.");
+				return false;
+			}
 			/*
 			 * You can't start a new activity before the last one has finished.
 			 */
@@ -163,8 +174,29 @@ public abstract class PlayerActivityEntity extends UseableEntity {
 
 				SingletonRepository.getTurnNotifier().notifyInSeconds(getDuration(), activity);
 			}
+			
+			
 		}
-
+		else if(is_bed)
+		{    
+			if (!player.nextTo(this, 1)) {
+				player.sendPrivateText("You are too far away from " + this.getName()+
+					", try to come closer.");
+				return false;
+			}
+		     if (!bed_is_used) {		
+			    player.faceToward(this);
+		 	    onStarted(player);
+		     }
+		     else if(player.check_bed()) {
+		    	 activityDone(player);
+		     }
+		     else
+		    	 player.sendPrivateText("Bed is used by someone");
+		
+		}
+			
+		
 		player.notifyWorldAboutChanges();
 		return true;
 	}
