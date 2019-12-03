@@ -50,7 +50,7 @@ public final class Events {
 	/** progress log */
 	public static final String PROGRESS_STATUS_CHANGE = "progress_status_event";
 
-	/** achievement notiviation */
+	/** achievement notifiation */
 	public static final String REACHED_ACHIEVEMENT = "reached_achievement";
 
 	/** Event for graphical effects. */

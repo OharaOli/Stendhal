@@ -12,8 +12,7 @@
  ***************************************************************************/
 package games.stendhal.server.script;
 
-import static org.hamcrest.Matchers.containsString;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.BeforeClass;
@@ -44,6 +43,6 @@ public class ListRaidsTest {
 		ListRaids script = new ListRaids();
 		Player player = PlayerTestHelper.createPlayer("george");
 		script.execute(player, null);
-		assertThat(player.events().get(0).toString(), containsString("ZombieRaid"));
+		assertTrue(player.events().get(0).toString().contains("Known RaidScripts"));
 	}
 }
