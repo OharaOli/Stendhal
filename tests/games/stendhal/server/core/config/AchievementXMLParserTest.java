@@ -7,17 +7,20 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
+import org.junit.Test;
+import org.xml.sax.SAXException;
+
 import games.stendhal.server.core.rp.achievement.Achievement;
 
 public class AchievementXMLParserTest {
-
-	public void testListNotEmpty() throws URISyntaxException {
+	@Test
+	public void testListNotEmpty() throws URISyntaxException, SAXException {
 		AchievementXMLParser parser = new AchievementXMLParser();
 		List<Achievement> achievements = parser.load(new URI("testachievements.xml"));
 		assertThat(Boolean.valueOf(achievements.isEmpty()), is(Boolean.FALSE));
 	}
-	
-	public void testDataLoadsIntoAchievementClass() throws URISyntaxException {
+	@Test
+	public void testDataLoadsIntoAchievementClass() throws URISyntaxException, SAXException {
 		AchievementXMLParser parser = new AchievementXMLParser();
 		List<Achievement> achievements = parser.load(new URI("testachievements.xml"));
 		Achievement achievement = achievements.get(0);
