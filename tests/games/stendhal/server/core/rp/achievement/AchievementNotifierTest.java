@@ -18,7 +18,7 @@ import marauroa.common.game.RPEvent;
 import utilities.PlayerTestHelper;
 
 /**
- * Testing suite for {@link AchievementNotifier}}
+ * Testing suite for {@link AchievementNotifier}
  * 
  * Testing all the methods from achievement notifier 
  * @author q19754wk

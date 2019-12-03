@@ -368,11 +368,14 @@ public final class AchievementNotifier {
 	 */
 	protected Map<String, Achievement> createAchievements() {
 		Map<String, Achievement> achievementMap = new HashMap<String, Achievement>();
-		// Add a new instance from our class with the proper call returning the list with all the achievements
 		for(AbstractAchievementFactory factory : AbstractAchievementFactory.createFactories()) {
 			for(Achievement a : factory.createAchievements()) {
 				achievementMap.put(a.getIdentifier(), a);
 			}
+		}
+		AchievementImporter achievementImporter = AchievementImporter.get();
+		for(Achievement achievement : achievementImporter.getAchievements()) {
+			achievementMap.put(achievement.getIdentifier(),achievement);
 		}
 		return achievementMap;
 	}
