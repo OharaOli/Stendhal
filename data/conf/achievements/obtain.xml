@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<achievements xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../achievements.xsd ">
+
+  <achievement name="obtain achievement">
+    <type class="achievement"/>
+    <implementation class-name="games.stendhal.server.core.rp.achievement.factory.ObtainAchievementsFactory"/>
+    <identifier value="obtain.wish"/>
+    <title value="A wish came true"/>
+    <description value="Get an item from the wishing well"/>
+    <score value="Achievement.EASY_BASE_SCORE"/>
+    <active value="true"/>
+    <conditions>
+      <condition>
+        <method value="PlayerGotNumberOfItemsFromWellCondition"/>
+        <parameter value="0"/>
+      </condition>
+    </conditions>
+  </achievement>
+
+</achievements>

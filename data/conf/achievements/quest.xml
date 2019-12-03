@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<achievements xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../achievements.xsd ">
+
+  <achievement name="quest achievement">
+    <type class="achievement"/>
+    <implementation class-name="games.stendhal.server.core.rp.achievement.factory.QuestAchievementFactory"/>
+    <identifier value="quest.special.elf_princess.0025"/>
+    <title value="Faiumoni's Casanova"/>
+    <description value="Finish elf princess quest 25 times"/>
+    <score value="Achievement.MEDIUM_BASE_SCORE"/>
+    <active value="true"/>
+    <conditions>
+      <condition>
+        <method value="QuestStateGreaterThanCondition"/>
+        <parameter value='"elf_princess"'/>
+        <parameter value="2"/>
+        <parameter value="24"/>
+      </condition>
+    </conditions>
+  </achievement>
+
+</achievements>
