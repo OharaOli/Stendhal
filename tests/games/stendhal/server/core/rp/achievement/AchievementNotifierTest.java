@@ -10,7 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-import games.stendhal.server.entity.npc.condition.LevelGreaterThanCondition;
+//import games.stendhal.server.entity.npc.condition.LevelGreaterThanCondition;
+import games.stendhal.server.entity.npc.condition.PlayerHasKilledNumberOfCreaturesCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.core.rp.achievement.Category;
 import games.stendhal.server.events.ReachedAchievementEvent;
@@ -35,25 +36,30 @@ public class AchievementNotifierTest {
 	@Before
 	public void setup()
 	{
-		//StendhalRPZone zone = new StendhalRPZone("admin_test");
 		player = PlayerTestHelper.createPlayer("player");
+		player.initReachedAchievements();
+		achievementNotifier.initialize();
 	}
 	
 	@Test
+	/*
+	 * test to check if awardAchievementIfNotYetReached function 
+	 * works as intended
+	 */
 	public void awardAchievementIfNotYetReachedTest()
 	{
-		achievementNotifier.awardAchievementIfNotYetReached(player,"achievement");
+		achievementNotifier.awardAchievementIfNotYetReached(player,"fight.general.rats");
 		List<RPEvent> events = player.events();
-		Achievement fakeAchievement = new Achievement("fake","fake-ach",Category.EXPERIENCE,
-													  "fake achievement",0,true,new LevelGreaterThanCondition(0));
+		Achievement fakeAchievement = new Achievement("fight.general.rats", "Rat Hunter",Category.EXPERIENCE, "Kill 15 rats", Achievement.EASY_BASE_SCORE, true,
+				new PlayerHasKilledNumberOfCreaturesCondition("rat", 15));
 		RPEvent actualEvent = new ReachedAchievementEvent(fakeAchievement);
-		for(RPEvent currentEvent : events)
-		{
-			assertEquals(actualEvent,currentEvent);
-		}
+		assertTrue(events.contains(actualEvent));
 	}
 	
 	@Test
+	/*
+	 * test to check if the newly added createAchievements function works
+	 */
 	public void createAchievementsTest()
 	{
 		Map<String, Achievement> expectedListOfAchievements = new HashMap<>();
@@ -62,13 +68,29 @@ public class AchievementNotifierTest {
 	}
 	
 	@Test
+	/*
+	 * test to check if onlogin functionality works
+	 */
 	public void onLoginTest()
 	{
 		achievementNotifier.awardAchievementIfNotYetReached(player,"Greenhorn");
 
 		achievementNotifier.onLogin(player);
-		assertEquals(player.getLastPrivateChatter(),"database");
+		assertEquals(player.getLastPrivateChatter(),"admin");
 	}
 	
+	@Test
+	/*
+	 * test to check if achievement is awarded on correct number of kills
+	 */
+	public void onKillTest()
+	{
+		Achievement killAchievement = new Achievement("fight.general.rats", "Rat Hunter",Category.EXPERIENCE, "Kill 15 rats", Achievement.EASY_BASE_SCORE, true,
+				new PlayerHasKilledNumberOfCreaturesCondition("rat", 15));
+		RPEvent actualEvent = new ReachedAchievementEvent(killAchievement);
+		player.setSoloKillCount("rat", 15);
+		achievementNotifier.onKill(player);
+		assertTrue(player.events().contains(actualEvent));
+	}
 	
 }
