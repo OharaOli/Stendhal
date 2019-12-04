@@ -76,7 +76,15 @@ public class AchievementNotifierTest {
 		achievementNotifier.awardAchievementIfNotYetReached(player,"Greenhorn");
 
 		achievementNotifier.onLogin(player);
-		assertEquals(player.getLastPrivateChatter(),"admin");
+		List<RPEvent> events = player.events();
+		String message = "You have reached ";
+		boolean found = false;
+		for(RPEvent event : events)
+		{
+			if(event.get("text").contains(message))
+				found = true;
+		}
+		assertTrue(found);
 	}
 	
 	@Test
