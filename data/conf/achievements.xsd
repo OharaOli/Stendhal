@@ -54,19 +54,21 @@
                 </element>
                 
                 <element name="condition" maxOccurs="unbounded"
-                    <sequence>
-                        <element name="method">
-                            <complexType>
-                                <attribute name="value" type="string"></attribute>
-                            </complexType>
-                        </element>
-                        
-                        <element name="parameter">
-                            <complexType>
-                                <attribute name="value" type="string"></attribute>
-                            </complexType>
-                        </element>
-                    </sequence>
+                    <complexType>
+                        <sequence>
+                            <element name="method">
+                                <complexType>
+                                    <attribute name="value" type="string"></attribute>
+                                </complexType>
+                            </element>
+                            
+                            <element name="parameter">
+                                <complexType>
+                                    <attribute name="value" type="string"></attribute>
+                                </complexType>
+                            </element>
+                        </sequence>
+                    </complexType>
                 </element>
             </sequence>
         </complexType>
