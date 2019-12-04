@@ -4,6 +4,7 @@
 
   <achievement name="friend achievement">
     <type class="achievements"/>
+    <category value = "FRIEND"/>
     <implementation class-name="games.stendhal.server.core.rp.achievement.factory.FriendAchievementFactory"/>
     <identifier value="friend.quests.children"/>
     <title value="Childrens' freind"/>
@@ -11,10 +12,10 @@
     <score value="Achievement.MEDIUM_BASE_SCORE"/>
     <active value="true"/>
     <conditions>
-      <andcondition>
+      <condition>
         <method value="QuestStartedCondition"/>
-        <parameter value='"susi"'/>
-      </andcondition>
+        <parameter value="susi"/>
+      </condition>
     </conditions>
   </achievement>
 

@@ -4,6 +4,7 @@
 
   <achievement name="outside zone achievement">
     <type class="achievement"/>
+    <category value = "OUTSIDE_ZONE"/>
     <implementation class-name="games.stendhal.server.core.rp.achievement.factory.OutsideZoneAchievementFactory"/>
     <identifier value="zone.outside.semos"/>
     <title value="Junior Explorer"/>
@@ -13,7 +14,7 @@
     <conditions>
       <condition>
         <method value="PlayerVisitedZonesInRegionCondition"/>
-        <parameter value='"semos"'/>
+        <parameter value="semos"/>
         <parameter value="Boolean.TRUE"/>
         <parameter value="Boolean.TRUE"/>
       </condition>

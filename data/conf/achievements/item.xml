@@ -4,6 +4,7 @@
 
   <achievement name="item achievement">
     <type class="achievement"/>
+    <category value = "ITEM"/>
     <implementation class-name="games.stendhal.server.core.rp.achievement.factory.ItemAchievementFactory"/>
     <identifier value="item.money.100"/>
     <title value="First pocket money"/>
@@ -14,7 +15,7 @@
       <condition>
         <method value="PlayerLootedNumberOfItemsCondition"/>
         <parameter value="100"/>
-        <parameter value='"money"'/>
+        <parameter value="money"/>
       </condition>
     </conditions>
   </achievement>

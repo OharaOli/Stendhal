@@ -4,6 +4,7 @@
 
   <achievement name="underground zone achievement">
     <type class="achievement"/>
+    <category value = "UNDERGROUND_ZONE"/>
     <implementation class-name="games.stendhal.server.core.rp.achievement.factory.UndergroundZoneAchievementFactory"/>
     <identifier value="zone.underground.semos"/>
     <title value="Canary"/>
@@ -13,7 +14,7 @@
     <conditions>
       <condition>
         <method value="PlayerVisitedZonesInRegionCondition"/>
-        <parameter value='"semos"'/>
+        <parameter value="semos"/>
         <parameter value="Boolean.TRUE"/>
         <parameter value="Boolean.FALSE"/>
       </condition>

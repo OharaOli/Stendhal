@@ -4,6 +4,7 @@
 
   <achievement name="experience achievement">
     <type class="achievement"/>
+    <category value = "EXPERIENCE"/>
     <implementation class-name="games.stendhal.server.core.rp.achievement.factory.ExperienceAchievementFactory"/>
     <attributes>
       <identifier value="xp.level.010"/>

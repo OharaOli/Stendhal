@@ -4,6 +4,7 @@
 
   <achievement name="production achievement">
     <type class="achievement"/>
+    <category value = "PRODUCTION"/>
     <implementation class-name="games.stendhal.server.core.rp.achievement.factory.ProductionAchievementFactory"/>
     <identifier value="production.class.food"/>
     <title value="Gourmet"/>
@@ -18,8 +19,8 @@
       </condition>
       <condition>
         <method value="QuestStateStartsWithCondition"/>
-        <parameter value='"coal_for_haunchy"'/>
-        <parameter value='"waiting;"'/>
+        <parameter value="coal_for_haunchy"/>
+        <parameter value="waiting;"/>
       </condition>
     </conditions>
   </achievement>

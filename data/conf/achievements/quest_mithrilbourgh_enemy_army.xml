@@ -4,6 +4,7 @@
 
   <achievement name="mithrilbourgh achievement">
     <type class="achievement"/>
+    <category value = "QUEST_MITHRILBOURGH_ENEMY_ARMY"/>
     <implementation class-name="games.stendhal.server.core.rp.achievement.factory.MithrilbourghEnemyArmyAchievementFactory"/>
     <identifier value="quest.special.kill_enemy_army.0005"/>
     <title value="Sergeant"/>
@@ -13,8 +14,8 @@
     <conditions>
       <condition>
         <method value="QuestStateGreaterThanCondition"/>
-        <parameter value='"kill_enemy_army"'/>
-        <parameter value="IDX"/>
+        <parameter value="kill_enemy_army"/>
+        <parameter value="3"/>
         <parameter value="4"/>
       </condition>
     </conditions>

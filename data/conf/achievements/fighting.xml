@@ -4,6 +4,7 @@
 
   <achievement name="fighting achievement">
     <type class="achievement"/>
+    <category value = "FIGHTING"/>
     <implementation class-name="games.stendhal.server.core.rp.achievement.factory.FightingAchievementFactory"/>
     <identifier value="fight.general.rats"/>
     <title value="Rat Hunter"/>
@@ -13,7 +14,7 @@
     <conditions>
       <condition>
         <method value="PlayerHasKilledNumberOfCreaturesCondition"/>
-        <parameter value='"rat"'/>
+        <parameter value="rat"/>
         <parameter value="15"/>
       </condition>
     </conditions>

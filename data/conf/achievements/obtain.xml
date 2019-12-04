@@ -4,6 +4,7 @@
 
   <achievement name="obtain achievement">
     <type class="achievement"/>
+    <category value = "OBTAIN"/>
     <implementation class-name="games.stendhal.server.core.rp.achievement.factory.ObtainAchievementsFactory"/>
     <identifier value="obtain.wish"/>
     <title value="A wish came true"/>

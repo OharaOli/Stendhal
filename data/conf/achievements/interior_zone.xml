@@ -4,6 +4,7 @@
 
   <achievement name="interior zone achievement">
     <type class="achievement"/>
+    <category value = "INTERIOR_ZONE"/>
     <implementation class-name="games.stendhal.server.core.rp.achievement.factory.InteriorZoneAchievementFactory"/>
     <identifier value="zone.interior.semos"/>
     <title value="Home maker"/>
@@ -13,7 +14,7 @@
     <conditions>
       <condition>
         <method value="PlayerVisitedZonesInRegionCondition"/>
-        <parameter value='"semos"'/>
+        <parameter value="semos"/>
         <parameter value="Boolean.FALSE"/>
         <parameter value="Boolean.FALSE"/>
       </condition>

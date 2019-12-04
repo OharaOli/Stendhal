@@ -4,6 +4,7 @@
 
   <achievement name="semos monster achievement">
     <type class="achievement"/>
+    <category value = "QUEST_SEMOS_MONSTER"/>
     <implementation class-name="games.stendhal.server.core.rp.achievement.factory.SemosMonsterQuestAchievementFactory"/>
     <identifier value="quest.special.daily.0010"/>
     <title value="Semos' Protector"/>
@@ -13,7 +14,7 @@
     <conditions>
       <condition>
         <method value="QuestStateGreaterThanCondition"/>
-        <parameter value='"daily"'/>
+        <parameter value="daily"/>
         <parameter value="2"/>
         <parameter value="9"/>
       </condition>

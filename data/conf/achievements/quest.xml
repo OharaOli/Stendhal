@@ -4,6 +4,7 @@
 
   <achievement name="quest achievement">
     <type class="achievement"/>
+    <category value = "QUEST"/>
     <implementation class-name="games.stendhal.server.core.rp.achievement.factory.QuestAchievementFactory"/>
     <identifier value="quest.special.elf_princess.0025"/>
     <title value="Faiumoni's Casanova"/>
@@ -13,7 +14,7 @@
     <conditions>
       <condition>
         <method value="QuestStateGreaterThanCondition"/>
-        <parameter value='"elf_princess"'/>
+        <parameter value="elf_princess"/>
         <parameter value="2"/>
         <parameter value="24"/>
       </condition>
