@@ -16,35 +16,27 @@
         <method value="QuestStartedCondition"/>
         <parameter value="susi"/>
       </condition>
+      <condition>
+        <method value="QuestCompletedCondition"/>
+        <parameter value="introduce_players"/>
+      </condition>
+      <condition>
+        <method value="QuestCompletedCondition"/>
+        <parameter value="plinks_toy"/>
+      </condition>
+      <condition>
+        <method value="QuestCompletedCondition"/>
+        <parameter value="toys_collector"/>
+      </condition>
+      <condition>
+        <method value="QuestStartedCondition"/>
+        <parameter value="susi"/>
+      </condition>
+      <condition>
+        <method value="QuestStartedCondition"/>
+        <parameter value="susi"/>
+      </condition>
     </conditions>
   </achievement>
 
 </achievements>
-
-
-achievements.add(createAchievement("friend.quests.children", "Childrens' friend", "Complete quests for all children",
-				Achievement.MEDIUM_BASE_SCORE, true,
-				new AndCondition(
-						// Susi Quest is never set to done, therefore we check just if the quest has been started (condition "anyFriends" from FoundGirl.java)
-						new QuestStartedCondition("susi"),
-						// Help Tad, Semos Town Hall (Medicine for Tad)
-						new QuestCompletedCondition("introduce_players"),
-						// Plink, Semos Plains North
-						new QuestCompletedCondition("plinks_toy"),
-						// Anna, in Ados
-						new QuestCompletedCondition("toys_collector"),
-						// Sally, Orril River
-						// 'completed' doesn't work for Sally - return player.hasQuest(QUEST_SLOT) && !"start".equals(player.getQuest(QUEST_SLOT)) && !"rejected".equals(player.getQuest(QUEST_SLOT));
-						new AndCondition(new QuestActiveCondition("campfire"), new QuestNotInStateCondition("campfire", "start")),
-						// Annie, Kalavan city gardens
-						new QuestStateStartsWithCondition("icecream_for_annie","eating;"),
-						// Elisabeth, Kirdneh
-						new QuestStateStartsWithCondition("chocolate_for_elisabeth","eating;"),
-						// Jef, Kirdneh
-						new QuestCompletedCondition("find_jefs_mom"),
-						// Hughie, Ados farmhouse
-						new AndCondition(new QuestActiveCondition("fishsoup_for_hughie"), new QuestNotInStateCondition("fishsoup_for_hughie", "start"),
-						// Finn Farmer, George
-						new QuestCompletedCondition("coded_message")))));
-												
-(String identifier, String title, String description, int score, boolean active, ChatCondition condition)
