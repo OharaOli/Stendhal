@@ -1,0 +1,74 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="stendhal"
+	xmlns:tns="http://www.example.org/zones" elementFormDefault="qualified"
+	xmlns:Q1="stendhal">
+	
+    <element name="achievement">
+        <complexType>
+            <sequence>
+                <element name="type">
+                    <complexType>
+                        <attribute name="class" type="string"></attribute>
+                    </complexType>
+                </element>
+                
+                <element name="category">
+                    <complexType>
+                        <attribute name="value" type="string"></attribute>
+                    </complexType>
+                </element>
+                
+                <element name="implementation">
+                    <complexType>
+                        <attribute name="class-name" type="string"></attribute>
+                    </complexType>
+                </element>
+                
+                <element name="identifier">
+                    <complexType>
+                        <attribute name="value" type="string"></attribute>
+                    </complexType>
+                </element>
+                
+                <element name="title">
+                    <complexType>
+                        <attribute name="value" type="string"></attribute>
+                    </complexType>
+                </element>
+                
+                <element name="description">
+                    <complexType>
+                        <attribute name="value" type="string"></attribute>
+                    /<complexType>
+                </element>
+                
+                <element name="score">
+                    <complexType>
+                        <attribute name="value" type="string"></attribute>
+                    </complexType>
+                </element>
+                
+                <element name="active">
+                    <complexType>
+                        <attribute name="value" type="string"></attribute>
+                    </complexType>
+                </element>
+                
+                <element name="condition" maxOccurs="unbounded"
+                    <sequence>
+                        <element name="method">
+                            <complexType>
+                                <attribute name="value" type="string"></attribute>
+                            </complexType>
+                        </element>
+                        
+                        <element name="parameter">
+                            <complexType>
+                                <attribute name="value" type="string"></attribute>
+                            </complexType>
+                        </element>
+                    </sequence>
+                </element>
+            </sequence>
+        </complexType>
+    </element>
+</schema>
