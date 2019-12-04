@@ -3,6 +3,7 @@ package games.stendhal.server.core.config;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -16,27 +17,27 @@ import games.stendhal.server.core.rp.achievement.Category;
 public class AchievementXMLParserTest {
 	
 	@Test
-	public void testListNotEmpty() throws URISyntaxException, SAXException {
-		AchievementXMLParser parser = new AchievementXMLParser();
+	public void testListNotEmpty() throws URISyntaxException, SAXException, IOException {
+		AchievementGroupsXMLParser parser = new AchievementGroupsXMLParser(new URI("testachievements.xml"));
 		//load test XML file which holds paths to some test XMLs and store them in a list of Achievement instances
-		List<Achievement> achievements = parser.load(new URI("testachievements.xml"));
+		List<Achievement> achievements = parser.load();
 		//test to see if list is empty - should not be
 		assertThat(Boolean.valueOf(achievements.isEmpty()), is(Boolean.FALSE));
 	}
 	
 	@Test
-	public void testListCorrectLength() throws URISyntaxException, SAXException {
-		AchievementXMLParser parser = new AchievementXMLParser();
+	public void testListCorrectLength() throws URISyntaxException, SAXException, IOException {
+		AchievementGroupsXMLParser parser = new AchievementGroupsXMLParser(new URI("testachievements.xml"));
 		//load test achievements into a list of Achievement instances
-		List<Achievement> achievements = parser.load(new URI("testachievements.xml"));
+		List<Achievement> achievements = parser.load();
 		//test to see if list is four elements long - size of test data
 		assertThat(achievements.size(), is(Integer.valueOf(4)));
 	}
 	
 	@Test
-	public void testStringValuesLoadCorrectly() throws URISyntaxException, SAXException {
-		AchievementXMLParser parser = new AchievementXMLParser();
-		List<Achievement> achievements = parser.load(new URI("testachievements.xml"));
+	public void testStringValuesLoadCorrectly() throws URISyntaxException, SAXException, IOException {
+		AchievementGroupsXMLParser parser = new AchievementGroupsXMLParser(new URI("testachievements.xml"));
+		List<Achievement> achievements = parser.load();
 		
 		//get first achievement instance from list
 		Achievement achievement = achievements.get(0);
@@ -47,9 +48,9 @@ public class AchievementXMLParserTest {
 	}
 	
 	@Test
-	public void testIntegerValuesLoadCorrectly() throws URISyntaxException, SAXException {
-		AchievementXMLParser parser = new AchievementXMLParser();
-		List<Achievement> achievements = parser.load(new URI("testachievements.xml"));
+	public void testIntegerValuesLoadCorrectly() throws URISyntaxException, SAXException, IOException {
+		AchievementGroupsXMLParser parser = new AchievementGroupsXMLParser(new URI("testachievements.xml"));
+		List<Achievement> achievements = parser.load();
 		
 		//get first achievement instance from list
 		Achievement achievement = achievements.get(0);
@@ -58,9 +59,9 @@ public class AchievementXMLParserTest {
 	}
 	
 	@Test
-	public void testBooleanValuesLoadCorrectly() throws URISyntaxException, SAXException {
-		AchievementXMLParser parser = new AchievementXMLParser();
-		List<Achievement> achievements = parser.load(new URI("testachievements.xml"));
+	public void testBooleanValuesLoadCorrectly() throws URISyntaxException, SAXException, IOException {
+		AchievementGroupsXMLParser parser = new AchievementGroupsXMLParser(new URI("testachievements.xml"));
+		List<Achievement> achievements = parser.load();
 		
 		//get first achievement instance from list
 		Achievement achievement = achievements.get(0);
@@ -69,9 +70,9 @@ public class AchievementXMLParserTest {
 	}
 	
 	@Test
-	public void testEnumValuesLoadCorrectly() throws URISyntaxException, SAXException {
-		AchievementXMLParser parser = new AchievementXMLParser();
-		List<Achievement> achievements = parser.load(new URI("testachievements.xml"));
+	public void testEnumValuesLoadCorrectly() throws URISyntaxException, SAXException, IOException {
+		AchievementGroupsXMLParser parser = new AchievementGroupsXMLParser(new URI("testachievements.xml"));
+		List<Achievement> achievements = parser.load();
 		
 		//get first achievement instance from list
 		Achievement achievement = achievements.get(0);
@@ -80,9 +81,9 @@ public class AchievementXMLParserTest {
 	}
 	
 	@Test
-	public void testDataLoadsIntoAchievementClass() throws URISyntaxException, SAXException {
-		AchievementXMLParser parser = new AchievementXMLParser();
-		List<Achievement> achievements = parser.load(new URI("testachievements.xml"));
+	public void testDataLoadsIntoAchievementClass() throws URISyntaxException, SAXException, IOException {
+		AchievementGroupsXMLParser parser = new AchievementGroupsXMLParser(new URI("testachievements.xml"));
+		List<Achievement> achievements = parser.load();
 		
 		//get first achievement instance from list
 		Achievement achievement = achievements.get(1);
@@ -96,9 +97,9 @@ public class AchievementXMLParserTest {
 	}
 
 	@Test
-	public void testDataLoadsIntoMultipleClasses() throws URISyntaxException, SAXException {
-		AchievementXMLParser parser = new AchievementXMLParser();
-		List<Achievement> achievements = parser.load(new URI("testachievements.xml"));
+	public void testDataLoadsIntoMultipleClasses() throws URISyntaxException, SAXException, IOException {
+		AchievementGroupsXMLParser parser = new AchievementGroupsXMLParser(new URI("testachievements.xml"));
+		List<Achievement> achievements = parser.load();
 		Achievement achievement = null;
 		
 		//load the remaining test achievements to ensure parser can handle loading multiple achievements correctly

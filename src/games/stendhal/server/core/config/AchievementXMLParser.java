@@ -18,6 +18,7 @@ import java.io.InputStream;
 import java.net.URI;
 
 import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -59,7 +60,7 @@ public final class AchievementXMLParser extends DefaultHandler {
 	private String text;
 	
 	private String conditionSTR;
-	private List<String> parameters;
+	private List<String> parameters = new ArrayList<String>();
 //-------------------------------	
 	
 
@@ -120,7 +121,8 @@ public final class AchievementXMLParser extends DefaultHandler {
 	public void startElement(final String namespaceURI, final String lName, final String qName,
 			final Attributes attrs) {
 		text = "";
-	
+		System.out.println(qName);
+		System.out.println(attrs.getValue("value"));
 		if (qName.equals("identifier")) {
 			identifier = attrs.getValue("value");
 		}	
@@ -141,7 +143,7 @@ public final class AchievementXMLParser extends DefaultHandler {
 		
 		else if (qName.equals("active")) {
 			String activeSTR = attrs.getValue("value");
-			if(activeSTR == "true")
+			if(activeSTR.equals("true"))
 			  active = true;
 			else
 			  active = false;
@@ -166,6 +168,8 @@ public final class AchievementXMLParser extends DefaultHandler {
 			String categorySTR = attrs.getValue("value");
 			if(categorySTR.equals("EXPERIENCE"))
 			    category = Category.EXPERIENCE;
+			else if(categorySTR.equals("FIGHTING"))
+			    category = Category.FIGHTING;
 			else if(categorySTR.equals("QUEST"))
 				category = Category.QUEST;
 			else if(categorySTR.equals("OUTSIDE_ZONE"))
@@ -204,6 +208,7 @@ public final class AchievementXMLParser extends DefaultHandler {
 	
 	@Override
 	public void endElement(final String namespaceURI, final String sName, final String qName) {
+		System.out.println(qName);
 		if (qName.equals("achievement")) {
 			//Class<?> method = Class.forName(conditionSTR);
 			final Achievement achievement;
