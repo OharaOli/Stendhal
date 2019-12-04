@@ -53,7 +53,7 @@
                     </complexType>
                 </element>
                 
-                <element name="condition" maxOccurs="unbounded"
+                <element name="condition" maxOccurs="unbounded">
                     <complexType>
                         <sequence>
                             <element name="method">
