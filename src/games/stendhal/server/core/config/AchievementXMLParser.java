@@ -40,7 +40,7 @@ import games.stendhal.server.entity.npc.condition.*;
 
 
 
-
+/* Author Vlad Cojocaru*/
 
 public final class AchievementXMLParser extends DefaultHandler {
 
@@ -66,7 +66,7 @@ public final class AchievementXMLParser extends DefaultHandler {
 	private List<Achievement> list;
 
 
-
+//method tries to read an XML file and parse it process in which it will add Achievements to a list and return it
 	public List<Achievement> load(final URI uri) throws SAXException {
 		list = new LinkedList<Achievement>();
 		// Use the default (non-validating) parser
@@ -115,14 +115,12 @@ public final class AchievementXMLParser extends DefaultHandler {
 	private ChatCondition condition;
 	
 	*/
-	
+	//method used my the SAX parser to check on start elements and their atributes
 	@Override
 	public void startElement(final String namespaceURI, final String lName, final String qName,
 			final Attributes attrs) {
 		text = "";
-		
-		
-		
+	
 		if (qName.equals("identifier")) {
 			identifier = attrs.getValue("value");
 		}	
@@ -130,8 +128,6 @@ public final class AchievementXMLParser extends DefaultHandler {
 		else if (qName.equals("title")) {
 			title = attrs.getValue("value");
 		} 
-		
-		
 		
 		else if (qName.equals("score")) {
 			String scoreSTR = attrs.getValue("value");
@@ -141,9 +137,7 @@ public final class AchievementXMLParser extends DefaultHandler {
 			  baseScore = Achievement.MEDIUM_BASE_SCORE;
 			else
 			  baseScore = Achievement.HARD_BASE_SCORE;
-		}	
-			
-		
+		}		
 		
 		else if (qName.equals("active")) {
 			String activeSTR = attrs.getValue("value");
@@ -204,8 +198,9 @@ public final class AchievementXMLParser extends DefaultHandler {
 	}
 
 	
-	//new Achievement(identifier, title, getCategory(),  description, score, active, condition)
 	
+	
+	//method used my the SAX parser to check on end elements
 	
 	@Override
 	public void endElement(final String namespaceURI, final String sName, final String qName) {
@@ -250,18 +245,9 @@ public final class AchievementXMLParser extends DefaultHandler {
 				achievement = 
 				new Achievement (identifier, title, category, description, baseScore, active, new LevelGreaterThanCondition(Integer.parseInt(parameters.get(0))));
 			}
-			
-			
-			
-	
-		
 
 			list.add(achievement);
-			
-			
-		
-		
-		
+			parameters.clear();
 		}
 	}
 
