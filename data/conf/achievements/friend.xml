@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<achievements xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../achievements.xsd ">
+
+  <achievement name="friend achievement">
+    <type class="achievements"/>
+    <category value = "FRIEND"/>
+    <implementation class-name="games.stendhal.server.core.rp.achievement.factory.FriendAchievementFactory"/>
+    <identifier value="friend.quests.children"/>
+    <title value="Childrens' freind"/>
+    <description value="Complete quests for all children"/>
+    <score value="Achievement.MEDIUM_BASE_SCORE"/>
+    <active value="true"/>
+    <conditions>
+      <condition>
+        <method value="QuestStartedCondition"/>
+        <parameter value="susi"/>
+      </condition>
+      <condition>
+        <method value="QuestCompletedCondition"/>
+        <parameter value="introduce_players"/>
+      </condition>
+      <condition>
+        <method value="QuestCompletedCondition"/>
+        <parameter value="plinks_toy"/>
+      </condition>
+      <condition>
+        <method value="QuestCompletedCondition"/>
+        <parameter value="toys_collector"/>
+      </condition>
+      <condition>
+        <method value="QuestStartedCondition"/>
+        <parameter value="susi"/>
+      </condition>
+      <condition>
+        <method value="QuestStartedCondition"/>
+        <parameter value="susi"/>
+      </condition>
+    </conditions>
+  </achievement>
+
+</achievements>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<achievements xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../achievements.xsd ">
+
+  <achievement name="semos monster achievement">
+    <type class="achievement"/>
+    <category value = "QUEST_SEMOS_MONSTER"/>
+    <implementation class-name="games.stendhal.server.core.rp.achievement.factory.SemosMonsterQuestAchievementFactory"/>
+    <identifier value="quest.special.daily.0010"/>
+    <title value="Semos' Protector"/>
+    <description value="Finish daily monster quest 10 times"/>
+    <score value="Achievement.EASY_BASE_SCORE"/>
+    <active value="true"/>
+    <conditions>
+      <condition>
+        <method value="QuestStateGreaterThanCondition"/>
+        <parameter value="daily"/>
+        <parameter value="2"/>
+        <parameter value="9"/>
+      </condition>
+    </conditions>
+  </achievement>
+
+</achievements>

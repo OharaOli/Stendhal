@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<achievements xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../achievements.xsd ">
+
+  <achievement name="mithrilbourgh achievement">
+    <type class="achievement"/>
+    <category value = "QUEST_MITHRILBOURGH_ENEMY_ARMY"/>
+    <implementation class-name="games.stendhal.server.core.rp.achievement.factory.MithrilbourghEnemyArmyAchievementFactory"/>
+    <identifier value="quest.special.kill_enemy_army.0005"/>
+    <title value="Sergeant"/>
+    <description value="Finish Kill Enemy Army quest 5 times"/>
+    <score value="Achievement.MEDIUM_BASE_SCORE"/>
+    <active value="true"/>
+    <conditions>
+      <condition>
+        <method value="QuestStateGreaterThanCondition"/>
+        <parameter value="kill_enemy_army"/>
+        <parameter value="3"/>
+        <parameter value="4"/>
+      </condition>
+    </conditions>
+  </achievement>
+
+</achievements>

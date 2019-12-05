@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<achievements xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../achievements.xsd ">
+
+  <achievement name="item achievement">
+    <type class="achievement"/>
+    <category value = "ITEM"/>
+    <implementation class-name="games.stendhal.server.core.rp.achievement.factory.ItemAchievementFactory"/>
+    <identifier value="item.money.100"/>
+    <title value="First pocket money"/>
+    <description value="Loot 100 money from creatures"/>
+    <score value="Achievement.EASY_BASE_SCORE"/>
+    <active value="true"/>
+    <conditions>
+      <condition>
+        <method value="PlayerLootedNumberOfItemsCondition"/>
+        <parameter value="100"/>
+        <parameter value="money"/>
+      </condition>
+    </conditions>
+  </achievement>
+
+</achievements>

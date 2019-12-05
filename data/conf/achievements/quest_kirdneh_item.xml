@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<achievements xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../achievements.xsd ">
+
+  <achievement name="kirdneh achievement">
+    <type class="achievement"/>
+    <category value = "QUEST_KIRDNEH_ITEM"/>
+    <implementation class-name="games.stendhal.server.core.rp.achievement.factory.KirdnehItemAchievementFactory"/>
+    <identifier value="quest.special.weekly_item.0005"/>
+    <title value="Archaeologist"/>
+    <description value="Finish weekly item quest 5 times"/>
+    <score value="Achievement.HARD_BASE_SCORE"/>
+    <active value="true"/>
+    <conditions>
+      <condition>
+        <method value="QuestStateGreaterThanCondition"/>
+        <parameter value="weekly_item"/>
+        <parameter value="2"/>
+        <parameter value="4"/>
+      </condition>
+    </conditions>
+  </achievement>
+
+</achievements>
