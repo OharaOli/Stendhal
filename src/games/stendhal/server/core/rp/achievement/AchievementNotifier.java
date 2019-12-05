@@ -366,12 +366,16 @@ public final class AchievementNotifier {
 	 *
 	 * @return map with key identifier and value the identified achievement
 	 */
-	private Map<String, Achievement> createAchievements() {
+	protected Map<String, Achievement> createAchievements() {
 		Map<String, Achievement> achievementMap = new HashMap<String, Achievement>();
 		for(AbstractAchievementFactory factory : AbstractAchievementFactory.createFactories()) {
 			for(Achievement a : factory.createAchievements()) {
 				achievementMap.put(a.getIdentifier(), a);
 			}
+		}
+		AchievementImporter achievementImporter = AchievementImporter.get();
+		for(Achievement achievement : achievementImporter.getAchievements()) {
+			achievementMap.put(achievement.getIdentifier(),achievement);
 		}
 		return achievementMap;
 	}
