@@ -1,6 +1,10 @@
 Changelog
 ---------
 ---------
+1.33uom
+- Migrated every part of the integration from the Achievements factories in an xml structure
+
+
 1.32uom
 - Added new feature first release Buy your own House Furniture
 - Added new feature first release Sleeping bag feature

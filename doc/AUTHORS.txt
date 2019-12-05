@@ -170,22 +170,28 @@ Authors of Stendhal are:
 - Ioan Anusca Popa
   - Rainbow Beans NPC's dialogue a bit mangled
   - Lon Jatham at the Deniran Institute of Techonology
+  - AchievementXMLImporter
 - Wolodymyr Krywonos
   - Mithril Clasp should go on key ring
   - Sleeping bag feature
+  - AchievementXMLImporter
+  - Achievement package coverage tests
 - Harry Cramp 
   - Stackable items on the keyring just wrong
   - Buy your own House Furniture
+  - AchievementXMLParser
 - Vlad-Andrei Cojocaru
   - Weightless Baby Dragons
   - Sleeping bag feature
+  - AchievementXMLParser
 - Dan Dogaru
   - Fishmonger in Kirdneh is Missing a Fish
   - Lon Jatham at the Deniran Institute of Techonology
+  - Achievement XML(XSD) migration
 - Oliver O'Hara
   - Travel log error for Emotion Crystals Quest
   - Buy your own House Furniture
-
+  - Achievement XML migration
 We also thank many who have contributed to Stendhal by providing patches,
 which the rest of the team commited on their behalf. 
 
