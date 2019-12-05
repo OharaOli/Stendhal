@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<achievements xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../achievements.xsd ">
+
+  <achievement name="fighting achievement">
+    <type class="achievement"/>
+    <category value = "FIGHTING"/>
+    <implementation class-name="games.stendhal.server.core.rp.achievement.factory.FightingAchievementFactory"/>
+    <identifier value="fight.general.rats"/>
+    <title value="Rat Hunter"/>
+    <description value="Kill 15 rats"/>
+    <score value="Achievement.EASY_BASE_SCORE"/>
+    <active value="true"/>
+    <conditions>
+      <condition>
+        <method value="PlayerHasKilledNumberOfCreaturesCondition"/>
+        <parameter value="rat"/>
+        <parameter value="15"/>
+      </condition>
+    </conditions>
+  </achievement>
+
+</achievements>
+
