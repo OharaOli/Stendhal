@@ -2,9 +2,9 @@ package games.stendhal.server.core.rp.achievement;
 import static org.junit.Assert.*;
 
 
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Map;
+
 
 import org.junit.Before;
 import org.junit.Test;
@@ -56,16 +56,6 @@ public class AchievementNotifierTest {
 		assertTrue(events.contains(actualEvent));
 	}
 	
-	@Test
-	/*
-	 * test to check if the newly added createAchievements function works
-	 */
-	public void createAchievementsTest()
-	{
-		Map<String, Achievement> expectedListOfAchievements = new HashMap<>();
-		Map<String, Achievement> resultedMapAchievements = achievementNotifier.createAchievements();
-		assertEquals(expectedListOfAchievements,resultedMapAchievements);
-	}
 	
 	@Test
 	/*

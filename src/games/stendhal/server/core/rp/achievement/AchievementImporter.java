@@ -40,12 +40,22 @@ public class AchievementImporter {
 		return importedAchievements;
 	}
 	
-	private void importAchievements(){
+	public void importAchievements(){
 		try {
-			final AchievementGroupsXMLLoader loader = new AchievementGroupsXMLLoader(new URI("/data/conf/achievement.xml"));
+			final AchievementGroupsXMLLoader loader = new AchievementGroupsXMLLoader(new URI("/data/conf/achievements.xml"));
+			if(loader == null)
+			{
+				
+				LOGGER.error("loader is null");
+			}
+		
+			
+			System.out.println("size " + loader.load().size());
+			
 			importedAchievements.addAll(loader.load());
 		} catch (final Exception e) {
 			LOGGER.error("achievement.xml could not be loaded", e);
+			
 		}
 	}
 	

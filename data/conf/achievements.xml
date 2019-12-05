@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <groups xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="stendhal groups.xsd ">
-	<group uri="achievemnts/experience.xml"/>
-	<group uri="achievemnts/fighting.xml"/>
-	<group uri="achievemnts/quest.xml"/>
-	<group uri="achievemnts/outside_zone.xml"/>
-	<group uri="achievemnts/underground_zound.xml"/>
-	<group uri="achievemnts/interior_zone.xml"/>
-	<group uri="achievemnts/age.xml"/>
-	<group uri="achievemnts/quest_ados_items.xml"/>
-	<group uri="achievemnts/quest_semos_monster.xml"/>
-	<group uri="achievemnts/quest_kirdneh_item.xml"/>
-	<group uri="achievemnts/quest_mithrilbourgh_enemy_army.xml"/>
+	<group uri="achievements/experience.xml"/>
+	<group uri="achievements/fighting.xml"/>
+	<group uri="achievements/quest.xml"/>
+	<group uri="achievements/outside_zone.xml"/>
+	<group uri="achievements/underground_zone.xml"/>
+	<group uri="achievements/interior_zone.xml"/>
+	<group uri="achievements/age.xml"/>
+	<group uri="achievements/quest_ados_items.xml"/>
+	<group uri="achievements/quest_semos_monster.xml"/>
+	<group uri="achievements/quest_kirdneh_item.xml"/>
+	<group uri="achievements/quest_mithrilbourgh_enemy_army.xml"/>
 
 
 </groups>
