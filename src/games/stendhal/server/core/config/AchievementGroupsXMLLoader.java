@@ -36,10 +36,10 @@ import games.stendhal.server.core.rp.achievement.*;
 /**
  * Load and configure items via an XML configuration file.
  */
-public class AchievementGroupsXMLParser extends DefaultHandler {
+public class AchievementGroupsXMLLoader extends DefaultHandler {
 
 
-	private static final Logger LOGGER = Logger.getLogger(AchievementGroupsXMLParser.class);
+	private static final Logger LOGGER = Logger.getLogger(AchievementGroupsXMLLoader.class);
 
 	/** The main item configuration file. */
 	protected URI uri;
@@ -50,7 +50,7 @@ public class AchievementGroupsXMLParser extends DefaultHandler {
 	 * @param uri
 	 *            The location of the configuration file.
 	 */
-	public AchievementGroupsXMLParser(final URI uri) {
+	public AchievementGroupsXMLLoader(final URI uri) {
 		this.uri = uri;
 	}
 
@@ -67,7 +67,7 @@ public class AchievementGroupsXMLParser extends DefaultHandler {
 		final GroupsXMLLoader groupsLoader = new GroupsXMLLoader(uri);
 		final List<URI> groups = groupsLoader.load();
 
-		final AchievementXMLParser loader = new AchievementXMLParser();
+		final AchievementXMLLoader loader = new AchievementXMLLoader();
 		final List<Achievement> list = new LinkedList<Achievement>();
 		for (final URI groupUri : groups) {
 			LOGGER.debug("Loading item group [" + groupUri + "]");

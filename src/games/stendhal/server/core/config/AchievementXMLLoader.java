@@ -43,10 +43,10 @@ import games.stendhal.server.entity.npc.condition.*;
 
 /* Author Vlad Cojocaru*/
 
-public final class AchievementXMLParser extends DefaultHandler {
+public final class AchievementXMLLoader extends DefaultHandler {
 
 	/** the logger instance. */
-	private static final Logger LOGGER = Logger.getLogger(AchievementXMLParser.class);
+	private static final Logger LOGGER = Logger.getLogger(AchievementXMLLoader.class);
 
 	
 //---------------------
@@ -76,7 +76,7 @@ public final class AchievementXMLParser extends DefaultHandler {
 			// Parse the input
 			final SAXParser saxParser = factory.newSAXParser();
 
-			final InputStream is = AchievementXMLParser.class.getResourceAsStream(uri.getPath());
+			final InputStream is = AchievementXMLLoader.class.getResourceAsStream(uri.getPath());
 
 			if (is == null) {
 				throw new FileNotFoundException("cannot find resource '" + uri
