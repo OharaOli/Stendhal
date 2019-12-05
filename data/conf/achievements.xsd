@@ -38,7 +38,7 @@
                 <element name="description">
                     <complexType>
                         <attribute name="value" type="string"></attribute>
-                    /<complexType>
+                    </complexType>
                 </element>
                 
                 <element name="score">

@@ -16,7 +16,6 @@
         <method value="PlayerVisitedZonesInRegionCondition"/>
         <parameter value="semos"/>
         <parameter value="Boolean.FALSE"/>
-        <parameter value="Boolean.FALSE"/>
       </condition>
     </conditions>
   </achievement>

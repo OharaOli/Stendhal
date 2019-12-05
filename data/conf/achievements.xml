@@ -8,10 +8,6 @@
 	<group uri="achievemnts/underground_zound.xml"/>
 	<group uri="achievemnts/interior_zone.xml"/>
 	<group uri="achievemnts/age.xml"/>
-	<group uri="achievemnts/item.xml"/>
-	<group uri="achievemnts/obtain.xml"/>
-	<group uri="achievemnts/friend.xml"/>
-	<group uri="achievemnts/production.xml"/>
 	<group uri="achievemnts/quest_ados_items.xml"/>
 	<group uri="achievemnts/quest_semos_monster.xml"/>
 	<group uri="achievemnts/quest_kirdneh_item.xml"/>
